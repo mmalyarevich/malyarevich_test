@@ -7,14 +7,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import com.example.Lab3.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.d("main_activity", "onCreate");
         setContentView(R.layout.activity_main);
-
-        dictionary = array2dict();
+        String[] tags = getResources().getStringArray(R.array.tags);
+        dictionary = array2dict(tags);
 
         Set<String> keySet = dictionary.keySet();
         keyList = new ArrayList<>(keySet);
@@ -76,9 +75,8 @@ public class MainActivity extends AppCompatActivity {
         }.start();
     }
 
-    public Map array2dict() {
-        dictionary = new HashMap<String,Integer>();
-        String[] tags = getResources().getStringArray(R.array.tags);
+    static public Map array2dict(String[] tags) {
+        Map dictionary = new HashMap<String,Integer>();
         for (String tag : tags) {
             String[] pair = tag.split(":");
 
