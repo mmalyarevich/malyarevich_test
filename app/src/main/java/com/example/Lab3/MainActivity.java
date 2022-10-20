@@ -49,10 +49,11 @@ public class MainActivity extends AppCompatActivity {
         onYesClick();
         onNoClick();
 
+
         SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putInt(getString(R.string.testing_mode), 0);
-        editor.apply();
+        int status = 1;
+
+        setTestMode(sharedPref, status);
 
         time = (TextView) findViewById(R.id.time);
         new CountDownTimer(60000, 1000){
@@ -73,6 +74,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         }.start();
+    }
+
+    static public void setTestMode(SharedPreferences sharedPref, int status){
+//        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putInt("testing_mode", status);
+        editor.apply();
     }
 
     static public Map array2dict(String[] tags) {

@@ -32,17 +32,19 @@
                 android:textAlignment="center"
                 android:textStyle="bold"
                 android:textColor="@color/purple"/>
+
             <EditText
+                android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/username"
 
+                android:layout_marginTop="40dp"
                 android:drawablePadding="8dp"
                 android:hint="Username"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
-                android:layout_marginTop="40dp"/>
+                android:visibility="visible" />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -79,6 +81,13 @@
         android:textAlignment="center"
         android:textColor="@color/purple"
         android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/checklogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:visibility="invisible"/>
 
 
 </LinearLayout>

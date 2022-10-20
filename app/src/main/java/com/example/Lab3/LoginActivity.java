@@ -22,6 +22,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText username;
     EditText password;
     TextView signup;
+    TextView checklogin;
+
     Button loginButton;
     private FirebaseAuth mAuth;
     private String email_val, password_val;
@@ -33,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         loginButton = findViewById(R.id.loginButton);
         signup = findViewById(R.id.signupText);
-
+        checklogin = findViewById(R.id.checklogin);
         mAuth = FirebaseAuth.getInstance();
 
         //checking if user is logged in
@@ -62,10 +64,12 @@ public class LoginActivity extends AppCompatActivity {
                                     // Sign in success, update UI with the signed-in user's information
                                     Log.d("LoginActivity", "signInWithEmail:success");
                                     FirebaseUser user = mAuth.getCurrentUser();
+                                    checklogin.setText("True");
                                     updateUI(user);
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     Log.w("LoginActivity", "signInWithEmail:failure", task.getException());
+                                    checklogin.setText("False");
                                     Toast.makeText(getApplicationContext(), "Authentication failed.",
                                             Toast.LENGTH_SHORT).show();
                                 }
