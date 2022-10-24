@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                                     Log.w("LoginActivity", "signInWithEmail:failure", task.getException());
                                     checklogin.setText("False");
                                     Toast.makeText(getApplicationContext(), "Authentication failed.",
-                                            Toast.LENGTH_SHORT).show();
+                                            Toast.LENGTH_LONG).show();
                                 }
 
                                 // ...

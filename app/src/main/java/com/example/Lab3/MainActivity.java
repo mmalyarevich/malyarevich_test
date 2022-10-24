@@ -68,12 +68,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFinish(){
                 time.setText("00:00");
-                Intent intent = new Intent(MainActivity.this, ResultActivity.class);
-                intent.putExtra("result", points.getText());
+                Intent intent = createIntent(MainActivity.this, points.getText());
+
                 finish();
                 startActivity(intent);
             }
         }.start();
+    }
+
+    static public Intent createIntent(Context context, CharSequence points){
+        Intent i = new Intent(context, ResultActivity.class);
+        i.putExtra("result", points);
+        return i;
     }
 
     static public void setTestMode(SharedPreferences sharedPref, int status){
