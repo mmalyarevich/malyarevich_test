@@ -1,8 +1,5 @@
 package com.example.Lab3;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -39,9 +39,9 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         //checking if user is logged in
-        if (mAuth.getCurrentUser() != null) {
-            updateUI(mAuth.getCurrentUser());
-        }
+//        if (mAuth.getCurrentUser() != null) {
+//            updateUI(mAuth.getCurrentUser());
+//        }
 
 
 
@@ -108,9 +108,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onResume();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null) {
-            updateUI(currentUser);
-        }
+//        if (currentUser != null) {
+//            updateUI(currentUser);
+//        }
     }
 
     public void updateUI(FirebaseUser currentUser) {
